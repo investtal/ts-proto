@@ -9,7 +9,7 @@ export interface Message {
   data: Buffer;
 }
 
-function createBaseMessage(): Message {
+export function createBaseMessage(): Message {
   return { data: Buffer.alloc(0) };
 }
 

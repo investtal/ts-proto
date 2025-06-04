@@ -153,7 +153,7 @@ export function withNestedEnum_QuxToJSON(object: WithNestedEnum_Qux): string {
   }
 }
 
-function createBaseWithNestedEnum(): WithNestedEnum {
+export function createBaseWithNestedEnum(): WithNestedEnum {
   return { foo: 0, Bar: 0, baz: 0, qux: 0 };
 }
 

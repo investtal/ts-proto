@@ -12,7 +12,7 @@ export interface ImportedThing {
   createdAt: Date | undefined;
 }
 
-function createBaseImportedThing(): ImportedThing {
+export function createBaseImportedThing(): ImportedThing {
   return { createdAt: undefined };
 }
 

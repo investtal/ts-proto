@@ -27,7 +27,7 @@ export interface NestedOneOf {
   nestedOneOfField?: string | undefined;
 }
 
-function createBaseJsonName(): JsonName {
+export function createBaseJsonName(): JsonName {
   return {
     other_name: "",
     other_age: undefined,
@@ -295,7 +295,7 @@ export const JsonName: MessageFns<JsonName> = {
   },
 };
 
-function createBaseNestedOneOf(): NestedOneOf {
+export function createBaseNestedOneOf(): NestedOneOf {
   return { nestedOneOfField: undefined };
 }
 

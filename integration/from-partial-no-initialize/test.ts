@@ -25,7 +25,7 @@ export interface TPartial_MapEntry {
   value: string;
 }
 
-function createBaseTPartialMessage(): TPartialMessage {
+export function createBaseTPartialMessage(): TPartialMessage {
   return {};
 }
 
@@ -83,7 +83,7 @@ export const TPartialMessage: MessageFns<TPartialMessage> = {
   },
 };
 
-function createBaseTPartial(): TPartial {
+export function createBaseTPartial(): TPartial {
   return {};
 }
 
@@ -307,7 +307,7 @@ export const TPartial: MessageFns<TPartial> = {
   },
 };
 
-function createBaseTPartial_MapEntry(): TPartial_MapEntry {
+export function createBaseTPartial_MapEntry(): TPartial_MapEntry {
   return { key: "", value: "" };
 }
 

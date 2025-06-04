@@ -74,7 +74,7 @@ export interface DashUserSettingsState_URLs {
 export interface Empty {
 }
 
-function createBaseDashFlash(): DashFlash {
+export function createBaseDashFlash(): DashFlash {
   return { msg: "", type: 0 };
 }
 
@@ -150,7 +150,7 @@ export const DashFlash: MessageFns<DashFlash> = {
   },
 };
 
-function createBaseDashUserSettingsState(): DashUserSettingsState {
+export function createBaseDashUserSettingsState(): DashUserSettingsState {
   return { email: "", urls: undefined, flashes: [] };
 }
 
@@ -244,7 +244,7 @@ export const DashUserSettingsState: MessageFns<DashUserSettingsState> = {
   },
 };
 
-function createBaseDashUserSettingsState_URLs(): DashUserSettingsState_URLs {
+export function createBaseDashUserSettingsState_URLs(): DashUserSettingsState_URLs {
   return { connectGoogle: "", connectGithub: "" };
 }
 
@@ -320,7 +320,7 @@ export const DashUserSettingsState_URLs: MessageFns<DashUserSettingsState_URLs> 
   },
 };
 
-function createBaseEmpty(): Empty {
+export function createBaseEmpty(): Empty {
   return {};
 }
 

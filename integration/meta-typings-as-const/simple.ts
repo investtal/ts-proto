@@ -19,7 +19,7 @@ export interface Test {
   enum: TestEnum;
 }
 
-function createBaseTest(): Test {
+export function createBaseTest(): Test {
   return { enum: 0 };
 }
 

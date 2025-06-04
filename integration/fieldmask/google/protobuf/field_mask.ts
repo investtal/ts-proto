@@ -211,7 +211,7 @@ export interface FieldMask {
   paths: string[];
 }
 
-function createBaseFieldMask(): FieldMask {
+export function createBaseFieldMask(): FieldMask {
   return { paths: [] };
 }
 

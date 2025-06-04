@@ -11,7 +11,7 @@ export interface Example {
   mask?: string[] | undefined;
 }
 
-function createBaseExample(): Example {
+export function createBaseExample(): Example {
   return { mask: undefined };
 }
 

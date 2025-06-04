@@ -81,7 +81,7 @@ export interface Tile_Layer {
   extent?: number | undefined;
 }
 
-function createBaseTile(): Tile {
+export function createBaseTile(): Tile {
   return { layers: [] };
 }
 
@@ -141,7 +141,7 @@ export const Tile: MessageFns<Tile> = {
   },
 };
 
-function createBaseTile_Value(): Tile_Value {
+export function createBaseTile_Value(): Tile_Value {
   return { stringValue: "", floatValue: 0, doubleValue: 0, intValue: 0, uintValue: 0, sintValue: 0, boolValue: false };
 }
 
@@ -297,7 +297,7 @@ export const Tile_Value: MessageFns<Tile_Value> = {
   },
 };
 
-function createBaseTile_Feature(): Tile_Feature {
+export function createBaseTile_Feature(): Tile_Feature {
   return { id: 0, tags: [], type: 0, geometry: [] };
 }
 
@@ -429,7 +429,7 @@ export const Tile_Feature: MessageFns<Tile_Feature> = {
   },
 };
 
-function createBaseTile_Layer(): Tile_Layer {
+export function createBaseTile_Layer(): Tile_Layer {
   return { version: 1, name: "", features: [], keys: [], values: [], extent: 4096 };
 }
 

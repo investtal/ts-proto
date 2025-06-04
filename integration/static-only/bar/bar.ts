@@ -11,7 +11,7 @@ export interface Bar {
   foo: Foo | undefined;
 }
 
-function createBaseBar(): Bar {
+export function createBaseBar(): Bar {
   return { foo: undefined };
 }
 

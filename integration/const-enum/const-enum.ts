@@ -77,7 +77,7 @@ export interface DividerData_TypeMapEntry {
   value: DividerData_DividerType;
 }
 
-function createBaseDividerData(): DividerData {
+export function createBaseDividerData(): DividerData {
   return { type: DividerData_DividerType.DOUBLE, typeMap: {} };
 }
 
@@ -175,7 +175,7 @@ export const DividerData: MessageFns<DividerData> = {
   },
 };
 
-function createBaseDividerData_TypeMapEntry(): DividerData_TypeMapEntry {
+export function createBaseDividerData_TypeMapEntry(): DividerData_TypeMapEntry {
   return { key: "", value: DividerData_DividerType.DOUBLE };
 }
 

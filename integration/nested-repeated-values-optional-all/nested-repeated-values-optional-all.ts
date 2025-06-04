@@ -15,7 +15,7 @@ export interface Example {
   list?: NestedList | undefined;
 }
 
-function createBaseNestedList(): NestedList {
+export function createBaseNestedList(): NestedList {
   return { aString: [] };
 }
 
@@ -78,7 +78,7 @@ export const NestedList: MessageFns<NestedList> = {
   },
 };
 
-function createBaseExample(): Example {
+export function createBaseExample(): Example {
   return { list: undefined };
 }
 

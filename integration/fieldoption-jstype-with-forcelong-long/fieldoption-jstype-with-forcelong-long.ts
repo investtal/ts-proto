@@ -13,7 +13,7 @@ export interface FieldOption {
   stringField: string;
 }
 
-function createBaseFieldOption(): FieldOption {
+export function createBaseFieldOption(): FieldOption {
   return { normalField: Long.ZERO, numberField: 0, stringField: "0" };
 }
 

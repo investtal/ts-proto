@@ -34,7 +34,7 @@ export interface Villain {
 
 export const HERO_PACKAGE_NAME = "hero";
 
-function createBaseHeroById(): HeroById {
+export function createBaseHeroById(): HeroById {
   return { id: 0 };
 }
 
@@ -71,7 +71,7 @@ export const HeroById: MessageFns<HeroById> = {
   },
 };
 
-function createBaseVillainById(): VillainById {
+export function createBaseVillainById(): VillainById {
   return { id: 0 };
 }
 
@@ -108,7 +108,7 @@ export const VillainById: MessageFns<VillainById> = {
   },
 };
 
-function createBaseHero(): Hero {
+export function createBaseHero(): Hero {
   return { id: 0, name: "" };
 }
 
@@ -156,7 +156,7 @@ export const Hero: MessageFns<Hero> = {
   },
 };
 
-function createBaseVillain(): Villain {
+export function createBaseVillain(): Villain {
   return { id: 0, name: "" };
 }
 

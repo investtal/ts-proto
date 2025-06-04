@@ -99,7 +99,7 @@ export interface DashAPICredsDeleteReq {
 export interface Empty {
 }
 
-function createBaseDashFlash(): DashFlash {
+export function createBaseDashFlash(): DashFlash {
   return { msg: "", type: 0 };
 }
 
@@ -175,7 +175,7 @@ export const DashFlash: MessageFns<DashFlash> = {
   },
 };
 
-function createBaseDashUserSettingsState(): DashUserSettingsState {
+export function createBaseDashUserSettingsState(): DashUserSettingsState {
   return { email: "", urls: undefined, flashes: [] };
 }
 
@@ -269,7 +269,7 @@ export const DashUserSettingsState: MessageFns<DashUserSettingsState> = {
   },
 };
 
-function createBaseDashUserSettingsState_URLs(): DashUserSettingsState_URLs {
+export function createBaseDashUserSettingsState_URLs(): DashUserSettingsState_URLs {
   return { connectGoogle: "", connectGithub: "" };
 }
 
@@ -345,7 +345,7 @@ export const DashUserSettingsState_URLs: MessageFns<DashUserSettingsState_URLs> 
   },
 };
 
-function createBaseDashCred(): DashCred {
+export function createBaseDashCred(): DashCred {
   return { description: "", metadata: "", token: "", id: "" };
 }
 
@@ -453,7 +453,7 @@ export const DashCred: MessageFns<DashCred> = {
   },
 };
 
-function createBaseDashAPICredsCreateReq(): DashAPICredsCreateReq {
+export function createBaseDashAPICredsCreateReq(): DashAPICredsCreateReq {
   return { description: "", metadata: "" };
 }
 
@@ -529,7 +529,7 @@ export const DashAPICredsCreateReq: MessageFns<DashAPICredsCreateReq> = {
   },
 };
 
-function createBaseDashAPICredsUpdateReq(): DashAPICredsUpdateReq {
+export function createBaseDashAPICredsUpdateReq(): DashAPICredsUpdateReq {
   return { credSid: "", description: "", metadata: "", id: "" };
 }
 
@@ -637,7 +637,7 @@ export const DashAPICredsUpdateReq: MessageFns<DashAPICredsUpdateReq> = {
   },
 };
 
-function createBaseDashAPICredsDeleteReq(): DashAPICredsDeleteReq {
+export function createBaseDashAPICredsDeleteReq(): DashAPICredsDeleteReq {
   return { credSid: "", id: "" };
 }
 
@@ -713,7 +713,7 @@ export const DashAPICredsDeleteReq: MessageFns<DashAPICredsDeleteReq> = {
   },
 };
 
-function createBaseEmpty(): Empty {
+export function createBaseEmpty(): Empty {
   return {};
 }
 

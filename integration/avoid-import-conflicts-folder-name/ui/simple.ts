@@ -61,7 +61,7 @@ export interface SimpleEnums {
   importEnum: SimpleEnum1;
 }
 
-function createBaseSimple(): Simple {
+export function createBaseSimple(): Simple {
   return { name: "", otherSimple: undefined };
 }
 
@@ -139,7 +139,7 @@ export const Simple: MessageFns<Simple> = {
   },
 };
 
-function createBaseSimpleEnums(): SimpleEnums {
+export function createBaseSimpleEnums(): SimpleEnums {
   return { localEnum: 0, importEnum: 0 };
 }
 

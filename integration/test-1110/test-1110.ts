@@ -39,7 +39,7 @@ export interface Nested_Function {
   name: string;
 }
 
-function createBaseUserRule(): UserRule {
+export function createBaseUserRule(): UserRule {
   return { UUID: "" };
 }
 
@@ -97,7 +97,7 @@ export const UserRule: MessageFns<UserRule> = {
   },
 };
 
-function createBaseObject(): Object {
+export function createBaseObject(): Object {
   return { namespace: "", name: "" };
 }
 
@@ -173,7 +173,7 @@ export const Object: MessageFns<Object> = {
   },
 };
 
-function createBaseBoolean(): Boolean {
+export function createBaseBoolean(): Boolean {
   return { namespace: "", name: "" };
 }
 
@@ -249,7 +249,7 @@ export const Boolean: MessageFns<Boolean> = {
   },
 };
 
-function createBaseSymbol(): Symbol {
+export function createBaseSymbol(): Symbol {
   return { namespace: "", name: "" };
 }
 
@@ -325,7 +325,7 @@ export const Symbol: MessageFns<Symbol> = {
   },
 };
 
-function createBaseFunctionMessage(): FunctionMessage {
+export function createBaseFunctionMessage(): FunctionMessage {
   return { namespace: "", name: "" };
 }
 
@@ -401,7 +401,7 @@ export const FunctionMessage: MessageFns<FunctionMessage> = {
   },
 };
 
-function createBaseNested(): Nested {
+export function createBaseNested(): Nested {
   return {};
 }
 
@@ -444,7 +444,7 @@ export const Nested: MessageFns<Nested> = {
   },
 };
 
-function createBaseNested_Function(): Nested_Function {
+export function createBaseNested_Function(): Nested_Function {
   return { namespace: "", name: "" };
 }
 

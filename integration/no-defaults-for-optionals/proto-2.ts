@@ -18,7 +18,7 @@ export interface Proto2TestMessage_MapValueEntry {
   value?: string | undefined;
 }
 
-function createBaseProto2TestMessage(): Proto2TestMessage {
+export function createBaseProto2TestMessage(): Proto2TestMessage {
   return { boolValue: undefined, intValue: undefined, stringValue: undefined, mapValue: {} };
 }
 
@@ -145,7 +145,7 @@ export const Proto2TestMessage: MessageFns<Proto2TestMessage> = {
   },
 };
 
-function createBaseProto2TestMessage_MapValueEntry(): Proto2TestMessage_MapValueEntry {
+export function createBaseProto2TestMessage_MapValueEntry(): Proto2TestMessage_MapValueEntry {
   return { key: undefined, value: undefined };
 }
 

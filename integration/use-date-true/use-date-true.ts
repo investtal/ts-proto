@@ -21,7 +21,7 @@ export interface Todo_MapOfTimestampsEntry {
   value: Date | undefined;
 }
 
-function createBaseTodo(): Todo {
+export function createBaseTodo(): Todo {
   return { id: "", timestamp: undefined, repeatedTimestamp: [], optionalTimestamp: undefined, mapOfTimestamps: {} };
 }
 
@@ -169,7 +169,7 @@ export const Todo: MessageFns<Todo> = {
   },
 };
 
-function createBaseTodo_MapOfTimestampsEntry(): Todo_MapOfTimestampsEntry {
+export function createBaseTodo_MapOfTimestampsEntry(): Todo_MapOfTimestampsEntry {
   return { key: "", value: undefined };
 }
 

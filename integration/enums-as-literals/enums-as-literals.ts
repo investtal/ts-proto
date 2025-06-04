@@ -59,7 +59,7 @@ export function dividerData_DividerTypeToJSON(object: DividerData_DividerType): 
   }
 }
 
-function createBaseDividerData(): DividerData {
+export function createBaseDividerData(): DividerData {
   return { type: 0 };
 }
 

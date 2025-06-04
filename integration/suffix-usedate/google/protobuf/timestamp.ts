@@ -113,7 +113,7 @@ export interface NoUseDatePTimestampNoUseDateS {
   nanos: number;
 }
 
-function createBaseNoUseDatePTimestampNoUseDateS(): NoUseDatePTimestampNoUseDateS {
+export function createBaseNoUseDatePTimestampNoUseDateS(): NoUseDatePTimestampNoUseDateS {
   return { seconds: 0, nanos: 0 };
 }
 

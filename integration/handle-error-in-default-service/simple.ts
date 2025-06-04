@@ -14,7 +14,7 @@ export interface GetBasicResponse {
   name: string;
 }
 
-function createBaseGetBasicRequest(): GetBasicRequest {
+export function createBaseGetBasicRequest(): GetBasicRequest {
   return { name: "" };
 }
 
@@ -72,7 +72,7 @@ export const GetBasicRequest: MessageFns<GetBasicRequest> = {
   },
 };
 
-function createBaseGetBasicResponse(): GetBasicResponse {
+export function createBaseGetBasicResponse(): GetBasicResponse {
   return { name: "" };
 }
 

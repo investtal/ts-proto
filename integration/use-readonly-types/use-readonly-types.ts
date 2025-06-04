@@ -29,7 +29,7 @@ export interface SubEntity {
   readonly subVal: number;
 }
 
-function createBaseEntity(): Entity {
+export function createBaseEntity(): Entity {
   return {
     intVal: 0,
     stringVal: "",
@@ -311,7 +311,7 @@ export const Entity: MessageFns<Entity> = {
   },
 };
 
-function createBaseSubEntity(): SubEntity {
+export function createBaseSubEntity(): SubEntity {
   return { subVal: 0 };
 }
 

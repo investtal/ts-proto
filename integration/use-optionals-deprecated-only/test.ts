@@ -86,7 +86,7 @@ export interface OptionalsTest_TranslationsEntry {
   value: string;
 }
 
-function createBaseOptionalsTest(): OptionalsTest {
+export function createBaseOptionalsTest(): OptionalsTest {
   return {
     id: 0,
     state: 0,
@@ -561,7 +561,7 @@ export const OptionalsTest: MessageFns<OptionalsTest> = {
   },
 };
 
-function createBaseOptionalsTest_TranslationsEntry(): OptionalsTest_TranslationsEntry {
+export function createBaseOptionalsTest_TranslationsEntry(): OptionalsTest_TranslationsEntry {
   return { key: "", value: "" };
 }
 

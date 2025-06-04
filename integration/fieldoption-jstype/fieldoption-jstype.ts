@@ -36,7 +36,7 @@ export interface SFixed64FieldOption {
   stringField: string;
 }
 
-function createBaseInt64FieldOption(): Int64FieldOption {
+export function createBaseInt64FieldOption(): Int64FieldOption {
   return { normalField: 0, numberField: 0, stringField: "0" };
 }
 
@@ -128,7 +128,7 @@ export const Int64FieldOption: MessageFns<Int64FieldOption> = {
   },
 };
 
-function createBaseUInt64FieldOption(): UInt64FieldOption {
+export function createBaseUInt64FieldOption(): UInt64FieldOption {
   return { normalField: 0, numberField: 0, stringField: "0" };
 }
 
@@ -220,7 +220,7 @@ export const UInt64FieldOption: MessageFns<UInt64FieldOption> = {
   },
 };
 
-function createBaseSInt64FieldOption(): SInt64FieldOption {
+export function createBaseSInt64FieldOption(): SInt64FieldOption {
   return { normalField: 0, numberField: 0, stringField: "0" };
 }
 
@@ -312,7 +312,7 @@ export const SInt64FieldOption: MessageFns<SInt64FieldOption> = {
   },
 };
 
-function createBaseFixed64FieldOption(): Fixed64FieldOption {
+export function createBaseFixed64FieldOption(): Fixed64FieldOption {
   return { normalField: 0, numberField: 0, stringField: "0" };
 }
 
@@ -404,7 +404,7 @@ export const Fixed64FieldOption: MessageFns<Fixed64FieldOption> = {
   },
 };
 
-function createBaseSFixed64FieldOption(): SFixed64FieldOption {
+export function createBaseSFixed64FieldOption(): SFixed64FieldOption {
   return { normalField: 0, numberField: 0, stringField: "0" };
 }
 

@@ -80,7 +80,7 @@ export interface DefaultValuesTest_TranslationsEntry {
 export interface Child {
 }
 
-function createBaseDefaultValuesTest(): DefaultValuesTest {
+export function createBaseDefaultValuesTest(): DefaultValuesTest {
   return {
     id: 0,
     child: undefined,
@@ -592,7 +592,7 @@ export const DefaultValuesTest: MessageFns<DefaultValuesTest> = {
   },
 };
 
-function createBaseDefaultValuesTest_TranslationsEntry(): DefaultValuesTest_TranslationsEntry {
+export function createBaseDefaultValuesTest_TranslationsEntry(): DefaultValuesTest_TranslationsEntry {
   return { key: "", value: "" };
 }
 
@@ -672,7 +672,7 @@ export const DefaultValuesTest_TranslationsEntry: MessageFns<DefaultValuesTest_T
   },
 };
 
-function createBaseChild(): Child {
+export function createBaseChild(): Child {
   return {};
 }
 

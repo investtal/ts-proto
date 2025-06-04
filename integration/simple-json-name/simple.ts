@@ -18,7 +18,7 @@ export interface Simple {
   hyphenList: string[];
 }
 
-function createBaseSimple(): Simple {
+export function createBaseSimple(): Simple {
   return {
     name: "",
     age: undefined,

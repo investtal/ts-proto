@@ -77,7 +77,7 @@ export interface FooServiceCreateResponse {
   kind: FooService2;
 }
 
-function createBaseSimple(): Simple {
+export function createBaseSimple(): Simple {
   return { name: "", otherSimple: undefined };
 }
 
@@ -155,7 +155,7 @@ export const Simple: MessageFns<Simple> = {
   },
 };
 
-function createBaseDifferentSimple(): DifferentSimple {
+export function createBaseDifferentSimple(): DifferentSimple {
   return { name: "", otherOptionalSimple2: undefined };
 }
 
@@ -235,7 +235,7 @@ export const DifferentSimple: MessageFns<DifferentSimple> = {
   },
 };
 
-function createBaseSimpleEnums(): SimpleEnums {
+export function createBaseSimpleEnums(): SimpleEnums {
   return { localEnum: 0, importEnum: 0 };
 }
 
@@ -311,7 +311,7 @@ export const SimpleEnums: MessageFns<SimpleEnums> = {
   },
 };
 
-function createBaseFooServiceCreateRequest(): FooServiceCreateRequest {
+export function createBaseFooServiceCreateRequest(): FooServiceCreateRequest {
   return { kind: 0 };
 }
 
@@ -369,7 +369,7 @@ export const FooServiceCreateRequest: MessageFns<FooServiceCreateRequest> = {
   },
 };
 
-function createBaseFooServiceCreateResponse(): FooServiceCreateResponse {
+export function createBaseFooServiceCreateResponse(): FooServiceCreateResponse {
   return { kind: 0 };
 }
 

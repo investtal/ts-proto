@@ -16,7 +16,7 @@ export interface Area {
   se: Point | undefined;
 }
 
-function createBasePoint(): Point {
+export function createBasePoint(): Point {
   return { lat: 0, lng: 0 };
 }
 
@@ -92,7 +92,7 @@ export const Point: MessageFns<Point> = {
   },
 };
 
-function createBaseArea(): Area {
+export function createBaseArea(): Area {
   return { nw: undefined, se: undefined };
 }
 

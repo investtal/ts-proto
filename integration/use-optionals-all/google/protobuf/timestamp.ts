@@ -115,7 +115,7 @@ export interface Timestamp {
   nanos?: number | undefined;
 }
 
-function createBaseTimestamp(): Timestamp {
+export function createBaseTimestamp(): Timestamp {
   return { seconds: 0, nanos: 0 };
 }
 

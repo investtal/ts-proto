@@ -46,7 +46,7 @@ export interface Maps_MapOfTimestampsEntry {
   value: Date | undefined;
 }
 
-function createBaseEntity(): Entity {
+export function createBaseEntity(): Entity {
   return { id: 0 };
 }
 
@@ -104,7 +104,7 @@ export const Entity: MessageFns<Entity> = {
   },
 };
 
-function createBaseMaps(): Maps {
+export function createBaseMaps(): Maps {
   return {
     strToEntity: new Map(),
     int32ToInt32: new Map(),
@@ -346,7 +346,7 @@ export const Maps: MessageFns<Maps> = {
   },
 };
 
-function createBaseMaps_StrToEntityEntry(): Maps_StrToEntityEntry {
+export function createBaseMaps_StrToEntityEntry(): Maps_StrToEntityEntry {
   return { key: "", value: undefined };
 }
 
@@ -424,7 +424,7 @@ export const Maps_StrToEntityEntry: MessageFns<Maps_StrToEntityEntry> = {
   },
 };
 
-function createBaseMaps_Int32ToInt32Entry(): Maps_Int32ToInt32Entry {
+export function createBaseMaps_Int32ToInt32Entry(): Maps_Int32ToInt32Entry {
   return { key: 0, value: 0 };
 }
 
@@ -500,7 +500,7 @@ export const Maps_Int32ToInt32Entry: MessageFns<Maps_Int32ToInt32Entry> = {
   },
 };
 
-function createBaseMaps_StringToBytesEntry(): Maps_StringToBytesEntry {
+export function createBaseMaps_StringToBytesEntry(): Maps_StringToBytesEntry {
   return { key: "", value: new Uint8Array(0) };
 }
 
@@ -576,7 +576,7 @@ export const Maps_StringToBytesEntry: MessageFns<Maps_StringToBytesEntry> = {
   },
 };
 
-function createBaseMaps_Int64ToInt64Entry(): Maps_Int64ToInt64Entry {
+export function createBaseMaps_Int64ToInt64Entry(): Maps_Int64ToInt64Entry {
   return { key: 0, value: 0 };
 }
 
@@ -652,7 +652,7 @@ export const Maps_Int64ToInt64Entry: MessageFns<Maps_Int64ToInt64Entry> = {
   },
 };
 
-function createBaseMaps_MapOfTimestampsEntry(): Maps_MapOfTimestampsEntry {
+export function createBaseMaps_MapOfTimestampsEntry(): Maps_MapOfTimestampsEntry {
   return { key: "", value: undefined };
 }
 

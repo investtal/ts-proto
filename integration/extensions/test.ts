@@ -62,7 +62,7 @@ export interface Group {
   _unknownFields?: { [key: number]: Uint8Array[] } | undefined;
 }
 
-function createBaseExtendable(): Extendable {
+export function createBaseExtendable(): Extendable {
   return {};
 }
 
@@ -192,7 +192,7 @@ export const Extendable: MessageFns<Extendable> & ExtensionFns<Extendable> = {
   },
 };
 
-function createBaseNested(): Nested {
+export function createBaseNested(): Nested {
   return {};
 }
 
@@ -295,7 +295,7 @@ export const Nested: MessageFns<Nested> & ExtensionHolder<"message", Nested[]> =
   },
 };
 
-function createBaseGroup(): Group {
+export function createBaseGroup(): Group {
   return {};
 }
 

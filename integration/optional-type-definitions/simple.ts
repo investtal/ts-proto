@@ -44,7 +44,7 @@ export interface Child {
   name: string;
 }
 
-function createBaseSimple(): Simple {
+export function createBaseSimple(): Simple {
   return { $type: "simple.Simple", name: "", age: 0, child: undefined, testField: "", testNotDeprecated: "" };
 }
 
@@ -171,7 +171,7 @@ export const Simple: MessageFns<Simple, "simple.Simple"> = {
   },
 };
 
-function createBaseChild(): Child {
+export function createBaseChild(): Child {
   return { $type: "simple.Child", name: "" };
 }
 

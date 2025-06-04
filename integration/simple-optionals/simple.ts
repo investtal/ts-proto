@@ -240,7 +240,7 @@ export interface Numbers {
   sfixed64: number;
 }
 
-function createBaseSimple(): Simple {
+export function createBaseSimple(): Simple {
   return {
     name: "",
     age: 0,
@@ -485,7 +485,7 @@ export const Simple: MessageFns<Simple> = {
   },
 };
 
-function createBaseChild(): Child {
+export function createBaseChild(): Child {
   return { name: "", type: 0 };
 }
 
@@ -561,7 +561,7 @@ export const Child: MessageFns<Child> = {
   },
 };
 
-function createBaseNested(): Nested {
+export function createBaseNested(): Nested {
   return { name: "", message: undefined, state: 0 };
 }
 
@@ -655,7 +655,7 @@ export const Nested: MessageFns<Nested> = {
   },
 };
 
-function createBaseNested_InnerMessage(): Nested_InnerMessage {
+export function createBaseNested_InnerMessage(): Nested_InnerMessage {
   return { name: "", deep: undefined };
 }
 
@@ -733,7 +733,7 @@ export const Nested_InnerMessage: MessageFns<Nested_InnerMessage> = {
   },
 };
 
-function createBaseNested_InnerMessage_DeepMessage(): Nested_InnerMessage_DeepMessage {
+export function createBaseNested_InnerMessage_DeepMessage(): Nested_InnerMessage_DeepMessage {
   return { name: "" };
 }
 
@@ -793,7 +793,7 @@ export const Nested_InnerMessage_DeepMessage: MessageFns<Nested_InnerMessage_Dee
   },
 };
 
-function createBaseOneOfMessage(): OneOfMessage {
+export function createBaseOneOfMessage(): OneOfMessage {
   return { first: undefined, last: undefined };
 }
 
@@ -869,7 +869,7 @@ export const OneOfMessage: MessageFns<OneOfMessage> = {
   },
 };
 
-function createBaseSimpleWithWrappers(): SimpleWithWrappers {
+export function createBaseSimpleWithWrappers(): SimpleWithWrappers {
   return { name: undefined, age: undefined, enabled: undefined, coins: [], snacks: [] };
 }
 
@@ -993,7 +993,7 @@ export const SimpleWithWrappers: MessageFns<SimpleWithWrappers> = {
   },
 };
 
-function createBaseEntity(): Entity {
+export function createBaseEntity(): Entity {
   return { id: 0 };
 }
 
@@ -1051,7 +1051,7 @@ export const Entity: MessageFns<Entity> = {
   },
 };
 
-function createBaseSimpleWithMap(): SimpleWithMap {
+export function createBaseSimpleWithMap(): SimpleWithMap {
   return { entitiesById: {}, nameLookup: {}, intLookup: {} };
 }
 
@@ -1209,7 +1209,7 @@ export const SimpleWithMap: MessageFns<SimpleWithMap> = {
   },
 };
 
-function createBaseSimpleWithMap_EntitiesByIdEntry(): SimpleWithMap_EntitiesByIdEntry {
+export function createBaseSimpleWithMap_EntitiesByIdEntry(): SimpleWithMap_EntitiesByIdEntry {
   return { key: 0, value: undefined };
 }
 
@@ -1289,7 +1289,7 @@ export const SimpleWithMap_EntitiesByIdEntry: MessageFns<SimpleWithMap_EntitiesB
   },
 };
 
-function createBaseSimpleWithMap_NameLookupEntry(): SimpleWithMap_NameLookupEntry {
+export function createBaseSimpleWithMap_NameLookupEntry(): SimpleWithMap_NameLookupEntry {
   return { key: "", value: "" };
 }
 
@@ -1367,7 +1367,7 @@ export const SimpleWithMap_NameLookupEntry: MessageFns<SimpleWithMap_NameLookupE
   },
 };
 
-function createBaseSimpleWithMap_IntLookupEntry(): SimpleWithMap_IntLookupEntry {
+export function createBaseSimpleWithMap_IntLookupEntry(): SimpleWithMap_IntLookupEntry {
   return { key: 0, value: 0 };
 }
 
@@ -1443,7 +1443,7 @@ export const SimpleWithMap_IntLookupEntry: MessageFns<SimpleWithMap_IntLookupEnt
   },
 };
 
-function createBaseSimpleWithSnakeCaseMap(): SimpleWithSnakeCaseMap {
+export function createBaseSimpleWithSnakeCaseMap(): SimpleWithSnakeCaseMap {
   return { entitiesById: {} };
 }
 
@@ -1525,7 +1525,7 @@ export const SimpleWithSnakeCaseMap: MessageFns<SimpleWithSnakeCaseMap> = {
   },
 };
 
-function createBaseSimpleWithSnakeCaseMap_EntitiesByIdEntry(): SimpleWithSnakeCaseMap_EntitiesByIdEntry {
+export function createBaseSimpleWithSnakeCaseMap_EntitiesByIdEntry(): SimpleWithSnakeCaseMap_EntitiesByIdEntry {
   return { key: 0, value: undefined };
 }
 
@@ -1607,7 +1607,7 @@ export const SimpleWithSnakeCaseMap_EntitiesByIdEntry: MessageFns<SimpleWithSnak
   },
 };
 
-function createBasePingRequest(): PingRequest {
+export function createBasePingRequest(): PingRequest {
   return { input: "" };
 }
 
@@ -1665,7 +1665,7 @@ export const PingRequest: MessageFns<PingRequest> = {
   },
 };
 
-function createBasePingResponse(): PingResponse {
+export function createBasePingResponse(): PingResponse {
   return { output: "" };
 }
 
@@ -1723,7 +1723,7 @@ export const PingResponse: MessageFns<PingResponse> = {
   },
 };
 
-function createBaseNumbers(): Numbers {
+export function createBaseNumbers(): Numbers {
   return {
     double: 0,
     float: 0,

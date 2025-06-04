@@ -113,7 +113,7 @@ export interface GRPCPTimestampGRPCS {
   nanos: number;
 }
 
-function createBaseGRPCPTimestampGRPCS(): GRPCPTimestampGRPCS {
+export function createBaseGRPCPTimestampGRPCS(): GRPCPTimestampGRPCS {
   return { seconds: 0, nanos: 0 };
 }
 

@@ -211,7 +211,7 @@ export interface GRPCPFieldMaskGRPCS {
   paths: string[];
 }
 
-function createBaseGRPCPFieldMaskGRPCS(): GRPCPFieldMaskGRPCS {
+export function createBaseGRPCPFieldMaskGRPCS(): GRPCPFieldMaskGRPCS {
   return { paths: [] };
 }
 

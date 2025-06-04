@@ -24,7 +24,7 @@ export interface TimestampMessage {
   timestamp: string | undefined;
 }
 
-function createBaseTimestampMessage(): TimestampMessage {
+export function createBaseTimestampMessage(): TimestampMessage {
   return { timestamp: undefined };
 }
 

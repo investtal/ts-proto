@@ -43,7 +43,7 @@ export interface Child {
   name: string;
 }
 
-function createBaseChild(): Child {
+export function createBaseChild(): Child {
   return { name: "" };
 }
 

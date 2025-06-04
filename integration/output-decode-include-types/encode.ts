@@ -14,7 +14,7 @@ export interface EncodeDontGenerateDecodeMethod {
   encodeDontGenerateDecodeMethod: string;
 }
 
-function createBaseEncodeWithDecodeMethod(): EncodeWithDecodeMethod {
+export function createBaseEncodeWithDecodeMethod(): EncodeWithDecodeMethod {
   return { encode: "" };
 }
 

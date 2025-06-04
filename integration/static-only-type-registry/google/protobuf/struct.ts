@@ -104,7 +104,7 @@ export interface ListValue {
   values: any[];
 }
 
-function createBaseStruct(): Struct {
+export function createBaseStruct(): Struct {
   return { fields: {} };
 }
 
@@ -213,7 +213,7 @@ export const Struct: MessageFns<Struct, "google.protobuf.Struct"> & StructWrappe
 
 messageTypeRegistry.set(Struct.$type, Struct);
 
-function createBaseStruct_FieldsEntry(): Struct_FieldsEntry {
+export function createBaseStruct_FieldsEntry(): Struct_FieldsEntry {
   return { key: "", value: undefined };
 }
 
@@ -293,7 +293,7 @@ export const Struct_FieldsEntry: MessageFns<Struct_FieldsEntry, "google.protobuf
 
 messageTypeRegistry.set(Struct_FieldsEntry.$type, Struct_FieldsEntry);
 
-function createBaseValue(): Value {
+export function createBaseValue(): Value {
   return {
     nullValue: undefined,
     numberValue: undefined,
@@ -481,7 +481,7 @@ export const Value: MessageFns<Value, "google.protobuf.Value"> & AnyValueWrapper
 
 messageTypeRegistry.set(Value.$type, Value);
 
-function createBaseListValue(): ListValue {
+export function createBaseListValue(): ListValue {
   return { values: [] };
 }
 

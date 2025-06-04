@@ -47,7 +47,7 @@ export interface Entity {
   name: string;
 }
 
-function createBaseBatchQueryRequest(): BatchQueryRequest {
+export function createBaseBatchQueryRequest(): BatchQueryRequest {
   return { ids: [] };
 }
 
@@ -105,7 +105,7 @@ export const BatchQueryRequest: MessageFns<BatchQueryRequest> = {
   },
 };
 
-function createBaseBatchQueryResponse(): BatchQueryResponse {
+export function createBaseBatchQueryResponse(): BatchQueryResponse {
   return { entities: [] };
 }
 
@@ -165,7 +165,7 @@ export const BatchQueryResponse: MessageFns<BatchQueryResponse> = {
   },
 };
 
-function createBaseBatchMapQueryRequest(): BatchMapQueryRequest {
+export function createBaseBatchMapQueryRequest(): BatchMapQueryRequest {
   return { ids: [] };
 }
 
@@ -223,7 +223,7 @@ export const BatchMapQueryRequest: MessageFns<BatchMapQueryRequest> = {
   },
 };
 
-function createBaseBatchMapQueryResponse(): BatchMapQueryResponse {
+export function createBaseBatchMapQueryResponse(): BatchMapQueryResponse {
   return { entities: {} };
 }
 
@@ -302,7 +302,7 @@ export const BatchMapQueryResponse: MessageFns<BatchMapQueryResponse> = {
   },
 };
 
-function createBaseBatchMapQueryResponse_EntitiesEntry(): BatchMapQueryResponse_EntitiesEntry {
+export function createBaseBatchMapQueryResponse_EntitiesEntry(): BatchMapQueryResponse_EntitiesEntry {
   return { key: "", value: undefined };
 }
 
@@ -384,7 +384,7 @@ export const BatchMapQueryResponse_EntitiesEntry: MessageFns<BatchMapQueryRespon
   },
 };
 
-function createBaseGetOnlyMethodRequest(): GetOnlyMethodRequest {
+export function createBaseGetOnlyMethodRequest(): GetOnlyMethodRequest {
   return { id: "" };
 }
 
@@ -442,7 +442,7 @@ export const GetOnlyMethodRequest: MessageFns<GetOnlyMethodRequest> = {
   },
 };
 
-function createBaseGetOnlyMethodResponse(): GetOnlyMethodResponse {
+export function createBaseGetOnlyMethodResponse(): GetOnlyMethodResponse {
   return { entity: undefined };
 }
 
@@ -502,7 +502,7 @@ export const GetOnlyMethodResponse: MessageFns<GetOnlyMethodResponse> = {
   },
 };
 
-function createBaseWriteMethodRequest(): WriteMethodRequest {
+export function createBaseWriteMethodRequest(): WriteMethodRequest {
   return { id: "" };
 }
 
@@ -560,7 +560,7 @@ export const WriteMethodRequest: MessageFns<WriteMethodRequest> = {
   },
 };
 
-function createBaseWriteMethodResponse(): WriteMethodResponse {
+export function createBaseWriteMethodResponse(): WriteMethodResponse {
   return {};
 }
 
@@ -603,7 +603,7 @@ export const WriteMethodResponse: MessageFns<WriteMethodResponse> = {
   },
 };
 
-function createBaseEntity(): Entity {
+export function createBaseEntity(): Entity {
   return { id: "", name: "" };
 }
 

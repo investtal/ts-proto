@@ -82,7 +82,7 @@ export interface OptionalsTest_TranslationsEntry {
 export interface Child {
 }
 
-function createBaseOptionalsTest(): OptionalsTest {
+export function createBaseOptionalsTest(): OptionalsTest {
   return {
     id: 0,
     child: undefined,
@@ -634,7 +634,7 @@ export const OptionalsTest: MessageFns<OptionalsTest> = {
   },
 };
 
-function createBaseOptionalsTest_TranslationsEntry(): OptionalsTest_TranslationsEntry {
+export function createBaseOptionalsTest_TranslationsEntry(): OptionalsTest_TranslationsEntry {
   return { key: "", value: "" };
 }
 
@@ -712,7 +712,7 @@ export const OptionalsTest_TranslationsEntry: MessageFns<OptionalsTest_Translati
   },
 };
 
-function createBaseChild(): Child {
+export function createBaseChild(): Child {
   return {};
 }
 

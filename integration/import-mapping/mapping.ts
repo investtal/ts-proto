@@ -31,7 +31,7 @@ export interface WithAll {
   veryVerySecret: VeryVerySecret | undefined;
 }
 
-function createBaseWithEmpty(): WithEmpty {
+export function createBaseWithEmpty(): WithEmpty {
   return { empty: undefined };
 }
 
@@ -89,7 +89,7 @@ export const WithEmpty: MessageFns<WithEmpty> = {
   },
 };
 
-function createBaseWithStruct(): WithStruct {
+export function createBaseWithStruct(): WithStruct {
   return { strut: undefined };
 }
 
@@ -147,7 +147,7 @@ export const WithStruct: MessageFns<WithStruct> = {
   },
 };
 
-function createBaseWithTimestamp(): WithTimestamp {
+export function createBaseWithTimestamp(): WithTimestamp {
   return { timestamp: undefined };
 }
 
@@ -205,7 +205,7 @@ export const WithTimestamp: MessageFns<WithTimestamp> = {
   },
 };
 
-function createBaseWithAll(): WithAll {
+export function createBaseWithAll(): WithAll {
   return { empty: undefined, strut: undefined, timestamp: undefined, duration: undefined, veryVerySecret: undefined };
 }
 

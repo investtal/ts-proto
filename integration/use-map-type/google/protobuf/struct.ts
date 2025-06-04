@@ -103,7 +103,7 @@ export interface ListValue {
   values: any[];
 }
 
-function createBaseStruct(): Struct {
+export function createBaseStruct(): Struct {
   return { fields: new Map() };
 }
 
@@ -205,7 +205,7 @@ export const Struct: MessageFns<Struct> & StructWrapperFns = {
   },
 };
 
-function createBaseStruct_FieldsEntry(): Struct_FieldsEntry {
+export function createBaseStruct_FieldsEntry(): Struct_FieldsEntry {
   return { key: "", value: undefined };
 }
 
@@ -281,7 +281,7 @@ export const Struct_FieldsEntry: MessageFns<Struct_FieldsEntry> = {
   },
 };
 
-function createBaseValue(): Value {
+export function createBaseValue(): Value {
   return {
     nullValue: undefined,
     numberValue: undefined,
@@ -465,7 +465,7 @@ export const Value: MessageFns<Value> & AnyValueWrapperFns = {
   },
 };
 
-function createBaseListValue(): ListValue {
+export function createBaseListValue(): ListValue {
   return { values: [] };
 }
 

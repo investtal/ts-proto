@@ -205,7 +205,7 @@ export function withNestedEnum_QuxToNumber(object: WithNestedEnum_Qux): number {
   }
 }
 
-function createBaseWithNestedEnum(): WithNestedEnum {
+export function createBaseWithNestedEnum(): WithNestedEnum {
   return {
     foo: Foo.UNSPECIFIED,
     Bar: Bar.UNSPECIFIED,

@@ -23,7 +23,7 @@ export interface TimestampMessage {
   timestamp: Timestamp | undefined;
 }
 
-function createBaseTimestampMessage(): TimestampMessage {
+export function createBaseTimestampMessage(): TimestampMessage {
   return { timestamp: undefined };
 }
 

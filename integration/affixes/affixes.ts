@@ -58,7 +58,7 @@ export interface PrefixGoogleSuffix {
   timestamp: Date | undefined;
 }
 
-function createBasePrefixAwesomeMessageSuffix(): PrefixAwesomeMessageSuffix {
+export function createBasePrefixAwesomeMessageSuffix(): PrefixAwesomeMessageSuffix {
   return {};
 }
 
@@ -101,7 +101,7 @@ export const PrefixAwesomeMessageSuffix: MessageFns<PrefixAwesomeMessageSuffix> 
   },
 };
 
-function createBasePrefixAwesomeMessage_InnerSuffix(): PrefixAwesomeMessage_InnerSuffix {
+export function createBasePrefixAwesomeMessage_InnerSuffix(): PrefixAwesomeMessage_InnerSuffix {
   return {};
 }
 
@@ -148,7 +148,7 @@ export const PrefixAwesomeMessage_InnerSuffix: MessageFns<PrefixAwesomeMessage_I
   },
 };
 
-function createBasePrefixGoogleSuffix(): PrefixGoogleSuffix {
+export function createBasePrefixGoogleSuffix(): PrefixGoogleSuffix {
   return { guint64: undefined, timestamp: undefined };
 }
 

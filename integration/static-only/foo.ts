@@ -20,7 +20,7 @@ export interface WithStruct {
   struct: { [key: string]: any } | undefined;
 }
 
-function createBaseFoo(): Foo {
+export function createBaseFoo(): Foo {
   return { timestamp: undefined };
 }
 
@@ -80,7 +80,7 @@ export const Foo: MessageFns<Foo, "foo.Foo"> = {
   },
 };
 
-function createBaseFoo2(): Foo2 {
+export function createBaseFoo2(): Foo2 {
   return { timestamp: undefined };
 }
 
@@ -140,7 +140,7 @@ export const Foo2: MessageFns<Foo2, "foo.Foo2"> = {
   },
 };
 
-function createBaseWithStruct(): WithStruct {
+export function createBaseWithStruct(): WithStruct {
   return { struct: undefined };
 }
 

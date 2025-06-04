@@ -28,7 +28,7 @@ export interface ResponseType {
   _unknownFields?: { [key: number]: Uint8Array[] } | undefined;
 }
 
-function createBaseMyMessage(): MyMessage {
+export function createBaseMyMessage(): MyMessage {
   return { foo: undefined, foo2: undefined, bar: undefined, quux: undefined, _unknownFields: {} };
 }
 
@@ -114,7 +114,7 @@ export const MyMessage: MessageFns<MyMessage> = {
   },
 };
 
-function createBaseRequestType(): RequestType {
+export function createBaseRequestType(): RequestType {
   return { _unknownFields: {} };
 }
 
@@ -156,7 +156,7 @@ export const RequestType: MessageFns<RequestType> = {
   },
 };
 
-function createBaseResponseType(): ResponseType {
+export function createBaseResponseType(): ResponseType {
   return { _unknownFields: {} };
 }
 

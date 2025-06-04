@@ -26,7 +26,7 @@ export interface Numbers {
   uint64s: bigint[];
 }
 
-function createBaseNumbers(): Numbers {
+export function createBaseNumbers(): Numbers {
   return {
     double: 0,
     float: 0,

@@ -14,7 +14,7 @@ export interface Parent {
   createdAt: Date | undefined;
 }
 
-function createBaseParent(): Parent {
+export function createBaseParent(): Parent {
   return { child: undefined, childEnum: 0, createdAt: undefined };
 }
 

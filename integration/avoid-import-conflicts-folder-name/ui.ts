@@ -50,7 +50,7 @@ export interface Simple {
   simple2Age: number;
 }
 
-function createBaseSimple(): Simple {
+export function createBaseSimple(): Simple {
   return { simple2Name: "", simple2Age: 0 };
 }
 

@@ -113,7 +113,7 @@ export interface PrefixTimestampSuffix {
   nanos: number;
 }
 
-function createBasePrefixTimestampSuffix(): PrefixTimestampSuffix {
+export function createBasePrefixTimestampSuffix(): PrefixTimestampSuffix {
   return { seconds: 0, nanos: 0 };
 }
 

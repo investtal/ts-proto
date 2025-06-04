@@ -103,7 +103,7 @@ export interface GRPCPListValueGRPCS {
   values: any[];
 }
 
-function createBaseGRPCPStructGRPCS(): GRPCPStructGRPCS {
+export function createBaseGRPCPStructGRPCS(): GRPCPStructGRPCS {
   return { fields: {} };
 }
 
@@ -208,7 +208,7 @@ export const GRPCPStructGRPCS: MessageFns<GRPCPStructGRPCS> & StructWrapperFns =
   },
 };
 
-function createBaseGRPCPStruct_FieldsEntryGRPCS(): GRPCPStruct_FieldsEntryGRPCS {
+export function createBaseGRPCPStruct_FieldsEntryGRPCS(): GRPCPStruct_FieldsEntryGRPCS {
   return { key: "", value: undefined };
 }
 
@@ -284,7 +284,7 @@ export const GRPCPStruct_FieldsEntryGRPCS: MessageFns<GRPCPStruct_FieldsEntryGRP
   },
 };
 
-function createBaseGRPCPValueGRPCS(): GRPCPValueGRPCS {
+export function createBaseGRPCPValueGRPCS(): GRPCPValueGRPCS {
   return {
     nullValue: undefined,
     numberValue: undefined,
@@ -468,7 +468,7 @@ export const GRPCPValueGRPCS: MessageFns<GRPCPValueGRPCS> & AnyValueWrapperFns =
   },
 };
 
-function createBaseGRPCPListValueGRPCS(): GRPCPListValueGRPCS {
+export function createBaseGRPCPListValueGRPCS(): GRPCPListValueGRPCS {
   return { values: [] };
 }
 

@@ -22,7 +22,7 @@ export interface UserById {
   id: number;
 }
 
-function createBaseProfileInfo(): ProfileInfo {
+export function createBaseProfileInfo(): ProfileInfo {
   return { id: 0, bio: "", phone: "" };
 }
 
@@ -114,7 +114,7 @@ export const ProfileInfo: MessageFns<ProfileInfo> = {
   },
 };
 
-function createBaseUser(): User {
+export function createBaseUser(): User {
   return { id: 0, username: "", profile: null };
 }
 
@@ -208,7 +208,7 @@ export const User: MessageFns<User> = {
   },
 };
 
-function createBaseUserById(): UserById {
+export function createBaseUserById(): UserById {
   return { id: 0 };
 }
 

@@ -8,7 +8,7 @@ export interface A {
   a: string;
 }
 
-function createBaseA(): A {
+export function createBaseA(): A {
   return { a: "" };
 }
 

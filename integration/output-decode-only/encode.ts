@@ -10,7 +10,7 @@ export interface Encode {
   encode: string;
 }
 
-function createBaseEncode(): Encode {
+export function createBaseEncode(): Encode {
   return { encode: "" };
 }
 

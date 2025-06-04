@@ -16,7 +16,7 @@ export interface GRPCPSuffixTypeGRPCS {
   listValue: Array<any> | undefined;
 }
 
-function createBaseGRPCPSuffixTypeGRPCS(): GRPCPSuffixTypeGRPCS {
+export function createBaseGRPCPSuffixTypeGRPCS(): GRPCPSuffixTypeGRPCS {
   return { createdAt: undefined, mask: undefined, struct: undefined, listValue: undefined };
 }
 

@@ -12,7 +12,7 @@ export interface Example {
   datetime?: Date | undefined;
 }
 
-function createBaseExample(): Example {
+export function createBaseExample(): Example {
   return { datetime: undefined };
 }
 

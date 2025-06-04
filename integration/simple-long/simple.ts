@@ -55,7 +55,7 @@ export interface Numbers {
   manyUint64: Long[];
 }
 
-function createBaseSimpleWithWrappers(): SimpleWithWrappers {
+export function createBaseSimpleWithWrappers(): SimpleWithWrappers {
   return { name: undefined, age: undefined, enabled: undefined, bananas: undefined, coins: [], snacks: [] };
 }
 
@@ -197,7 +197,7 @@ export const SimpleWithWrappers: MessageFns<SimpleWithWrappers> = {
   },
 };
 
-function createBaseSimpleWithMap(): SimpleWithMap {
+export function createBaseSimpleWithMap(): SimpleWithMap {
   return { nameLookup: {}, intLookup: {}, longLookup: new Map() };
 }
 
@@ -352,7 +352,7 @@ export const SimpleWithMap: MessageFns<SimpleWithMap> = {
   },
 };
 
-function createBaseSimpleWithMap_NameLookupEntry(): SimpleWithMap_NameLookupEntry {
+export function createBaseSimpleWithMap_NameLookupEntry(): SimpleWithMap_NameLookupEntry {
   return { key: "", value: "" };
 }
 
@@ -430,7 +430,7 @@ export const SimpleWithMap_NameLookupEntry: MessageFns<SimpleWithMap_NameLookupE
   },
 };
 
-function createBaseSimpleWithMap_IntLookupEntry(): SimpleWithMap_IntLookupEntry {
+export function createBaseSimpleWithMap_IntLookupEntry(): SimpleWithMap_IntLookupEntry {
   return { key: 0, value: 0 };
 }
 
@@ -506,7 +506,7 @@ export const SimpleWithMap_IntLookupEntry: MessageFns<SimpleWithMap_IntLookupEnt
   },
 };
 
-function createBaseSimpleWithMap_LongLookupEntry(): SimpleWithMap_LongLookupEntry {
+export function createBaseSimpleWithMap_LongLookupEntry(): SimpleWithMap_LongLookupEntry {
   return { key: Long.ZERO, value: Long.ZERO };
 }
 
@@ -584,7 +584,7 @@ export const SimpleWithMap_LongLookupEntry: MessageFns<SimpleWithMap_LongLookupE
   },
 };
 
-function createBaseNumbers(): Numbers {
+export function createBaseNumbers(): Numbers {
   return {
     double: 0,
     float: 0,

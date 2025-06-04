@@ -9,7 +9,7 @@ export interface Message {
   data: Uint8Array;
 }
 
-function createBaseMessage(): Message {
+export function createBaseMessage(): Message {
   return { data: new Uint8Array(0) };
 }
 

@@ -79,7 +79,7 @@ export interface PleaseChoose_Submessage {
   name: string;
 }
 
-function createBasePleaseChoose(): PleaseChoose {
+export function createBasePleaseChoose(): PleaseChoose {
   return {
     name: "",
     aNumber: undefined,
@@ -313,7 +313,7 @@ export const PleaseChoose: MessageFns<PleaseChoose> = {
   },
 };
 
-function createBasePleaseChoose_Submessage(): PleaseChoose_Submessage {
+export function createBasePleaseChoose_Submessage(): PleaseChoose_Submessage {
   return { name: "" };
 }
 

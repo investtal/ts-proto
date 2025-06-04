@@ -96,7 +96,7 @@ export interface PrefixBytesValueSuffix {
   value: Uint8Array;
 }
 
-function createBasePrefixDoubleValueSuffix(): PrefixDoubleValueSuffix {
+export function createBasePrefixDoubleValueSuffix(): PrefixDoubleValueSuffix {
   return { value: 0 };
 }
 
@@ -154,7 +154,7 @@ export const PrefixDoubleValueSuffix: MessageFns<PrefixDoubleValueSuffix> = {
   },
 };
 
-function createBasePrefixFloatValueSuffix(): PrefixFloatValueSuffix {
+export function createBasePrefixFloatValueSuffix(): PrefixFloatValueSuffix {
   return { value: 0 };
 }
 
@@ -212,7 +212,7 @@ export const PrefixFloatValueSuffix: MessageFns<PrefixFloatValueSuffix> = {
   },
 };
 
-function createBasePrefixInt64ValueSuffix(): PrefixInt64ValueSuffix {
+export function createBasePrefixInt64ValueSuffix(): PrefixInt64ValueSuffix {
   return { value: 0 };
 }
 
@@ -270,7 +270,7 @@ export const PrefixInt64ValueSuffix: MessageFns<PrefixInt64ValueSuffix> = {
   },
 };
 
-function createBasePrefixUInt64ValueSuffix(): PrefixUInt64ValueSuffix {
+export function createBasePrefixUInt64ValueSuffix(): PrefixUInt64ValueSuffix {
   return { value: 0 };
 }
 
@@ -328,7 +328,7 @@ export const PrefixUInt64ValueSuffix: MessageFns<PrefixUInt64ValueSuffix> = {
   },
 };
 
-function createBasePrefixInt32ValueSuffix(): PrefixInt32ValueSuffix {
+export function createBasePrefixInt32ValueSuffix(): PrefixInt32ValueSuffix {
   return { value: 0 };
 }
 
@@ -386,7 +386,7 @@ export const PrefixInt32ValueSuffix: MessageFns<PrefixInt32ValueSuffix> = {
   },
 };
 
-function createBasePrefixUInt32ValueSuffix(): PrefixUInt32ValueSuffix {
+export function createBasePrefixUInt32ValueSuffix(): PrefixUInt32ValueSuffix {
   return { value: 0 };
 }
 
@@ -444,7 +444,7 @@ export const PrefixUInt32ValueSuffix: MessageFns<PrefixUInt32ValueSuffix> = {
   },
 };
 
-function createBasePrefixBoolValueSuffix(): PrefixBoolValueSuffix {
+export function createBasePrefixBoolValueSuffix(): PrefixBoolValueSuffix {
   return { value: false };
 }
 
@@ -502,7 +502,7 @@ export const PrefixBoolValueSuffix: MessageFns<PrefixBoolValueSuffix> = {
   },
 };
 
-function createBasePrefixStringValueSuffix(): PrefixStringValueSuffix {
+export function createBasePrefixStringValueSuffix(): PrefixStringValueSuffix {
   return { value: "" };
 }
 
@@ -560,7 +560,7 @@ export const PrefixStringValueSuffix: MessageFns<PrefixStringValueSuffix> = {
   },
 };
 
-function createBasePrefixBytesValueSuffix(): PrefixBytesValueSuffix {
+export function createBasePrefixBytesValueSuffix(): PrefixBytesValueSuffix {
   return { value: new Uint8Array(0) };
 }
 

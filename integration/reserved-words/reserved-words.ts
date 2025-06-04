@@ -9,7 +9,7 @@ export const protobufPackage = "";
 export interface Record {
 }
 
-function createBaseRecord(): Record {
+export function createBaseRecord(): Record {
   return {};
 }
 

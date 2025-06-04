@@ -16,7 +16,7 @@ export interface SimpleStruct {
   simple_struct: { [key: string]: any } | undefined;
 }
 
-function createBaseSimpleStruct(): SimpleStruct {
+export function createBaseSimpleStruct(): SimpleStruct {
   return { simple_struct: undefined };
 }
 

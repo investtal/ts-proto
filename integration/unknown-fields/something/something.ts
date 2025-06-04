@@ -12,7 +12,7 @@ export interface Something {
   _unknownFields?: { [key: number]: Uint8Array[] } | undefined;
 }
 
-function createBaseSomething(): Something {
+export function createBaseSomething(): Something {
   return { hello: "", foo: [], _unknownFields: {} };
 }
 

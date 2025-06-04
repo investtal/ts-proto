@@ -955,7 +955,7 @@ export interface GeneratedCodeInfo_Annotation {
   end?: number | undefined;
 }
 
-function createBaseFileDescriptorSet(): FileDescriptorSet {
+export function createBaseFileDescriptorSet(): FileDescriptorSet {
   return { file: [] };
 }
 
@@ -992,7 +992,7 @@ export const FileDescriptorSet: MessageFns<FileDescriptorSet> = {
   },
 };
 
-function createBaseFileDescriptorProto(): FileDescriptorProto {
+export function createBaseFileDescriptorProto(): FileDescriptorProto {
   return {
     name: "",
     package: "",
@@ -1187,7 +1187,7 @@ export const FileDescriptorProto: MessageFns<FileDescriptorProto> = {
   },
 };
 
-function createBaseDescriptorProto(): DescriptorProto {
+export function createBaseDescriptorProto(): DescriptorProto {
   return {
     name: "",
     field: [],
@@ -1334,7 +1334,7 @@ export const DescriptorProto: MessageFns<DescriptorProto> = {
   },
 };
 
-function createBaseDescriptorProto_ExtensionRange(): DescriptorProto_ExtensionRange {
+export function createBaseDescriptorProto_ExtensionRange(): DescriptorProto_ExtensionRange {
   return { start: 0, end: 0, options: undefined };
 }
 
@@ -1393,7 +1393,7 @@ export const DescriptorProto_ExtensionRange: MessageFns<DescriptorProto_Extensio
   },
 };
 
-function createBaseDescriptorProto_ReservedRange(): DescriptorProto_ReservedRange {
+export function createBaseDescriptorProto_ReservedRange(): DescriptorProto_ReservedRange {
   return { start: 0, end: 0 };
 }
 
@@ -1441,7 +1441,7 @@ export const DescriptorProto_ReservedRange: MessageFns<DescriptorProto_ReservedR
   },
 };
 
-function createBaseExtensionRangeOptions(): ExtensionRangeOptions {
+export function createBaseExtensionRangeOptions(): ExtensionRangeOptions {
   return { uninterpretedOption: [] };
 }
 
@@ -1478,7 +1478,7 @@ export const ExtensionRangeOptions: MessageFns<ExtensionRangeOptions> = {
   },
 };
 
-function createBaseFieldDescriptorProto(): FieldDescriptorProto {
+export function createBaseFieldDescriptorProto(): FieldDescriptorProto {
   return {
     name: "",
     number: 0,
@@ -1637,7 +1637,7 @@ export const FieldDescriptorProto: MessageFns<FieldDescriptorProto> = {
   },
 };
 
-function createBaseOneofDescriptorProto(): OneofDescriptorProto {
+export function createBaseOneofDescriptorProto(): OneofDescriptorProto {
   return { name: "", options: undefined };
 }
 
@@ -1685,7 +1685,7 @@ export const OneofDescriptorProto: MessageFns<OneofDescriptorProto> = {
   },
 };
 
-function createBaseEnumDescriptorProto(): EnumDescriptorProto {
+export function createBaseEnumDescriptorProto(): EnumDescriptorProto {
   return { name: "", value: [], options: undefined, reservedRange: [], reservedName: [] };
 }
 
@@ -1766,7 +1766,7 @@ export const EnumDescriptorProto: MessageFns<EnumDescriptorProto> = {
   },
 };
 
-function createBaseEnumDescriptorProto_EnumReservedRange(): EnumDescriptorProto_EnumReservedRange {
+export function createBaseEnumDescriptorProto_EnumReservedRange(): EnumDescriptorProto_EnumReservedRange {
   return { start: 0, end: 0 };
 }
 
@@ -1814,7 +1814,7 @@ export const EnumDescriptorProto_EnumReservedRange: MessageFns<EnumDescriptorPro
   },
 };
 
-function createBaseEnumValueDescriptorProto(): EnumValueDescriptorProto {
+export function createBaseEnumValueDescriptorProto(): EnumValueDescriptorProto {
   return { name: "", number: 0, options: undefined };
 }
 
@@ -1873,7 +1873,7 @@ export const EnumValueDescriptorProto: MessageFns<EnumValueDescriptorProto> = {
   },
 };
 
-function createBaseServiceDescriptorProto(): ServiceDescriptorProto {
+export function createBaseServiceDescriptorProto(): ServiceDescriptorProto {
   return { name: "", method: [], options: undefined };
 }
 
@@ -1932,7 +1932,7 @@ export const ServiceDescriptorProto: MessageFns<ServiceDescriptorProto> = {
   },
 };
 
-function createBaseMethodDescriptorProto(): MethodDescriptorProto {
+export function createBaseMethodDescriptorProto(): MethodDescriptorProto {
   return {
     name: "",
     inputType: "",
@@ -2031,7 +2031,7 @@ export const MethodDescriptorProto: MessageFns<MethodDescriptorProto> = {
   },
 };
 
-function createBaseFileOptions(): FileOptions {
+export function createBaseFileOptions(): FileOptions {
   return {
     javaPackage: "",
     javaOuterClassname: "",
@@ -2310,7 +2310,7 @@ export const FileOptions: MessageFns<FileOptions> = {
   },
 };
 
-function createBaseMessageOptions(): MessageOptions {
+export function createBaseMessageOptions(): MessageOptions {
   return {
     messageSetWireFormat: false,
     noStandardDescriptorAccessor: false,
@@ -2397,7 +2397,7 @@ export const MessageOptions: MessageFns<MessageOptions> = {
   },
 };
 
-function createBaseFieldOptions(): FieldOptions {
+export function createBaseFieldOptions(): FieldOptions {
   return { ctype: 0, packed: false, jstype: 0, lazy: false, deprecated: false, weak: false, uninterpretedOption: [] };
 }
 
@@ -2500,7 +2500,7 @@ export const FieldOptions: MessageFns<FieldOptions> = {
   },
 };
 
-function createBaseOneofOptions(): OneofOptions {
+export function createBaseOneofOptions(): OneofOptions {
   return { uninterpretedOption: [] };
 }
 
@@ -2537,7 +2537,7 @@ export const OneofOptions: MessageFns<OneofOptions> = {
   },
 };
 
-function createBaseEnumOptions(): EnumOptions {
+export function createBaseEnumOptions(): EnumOptions {
   return { allowAlias: false, deprecated: false, uninterpretedOption: [] };
 }
 
@@ -2596,7 +2596,7 @@ export const EnumOptions: MessageFns<EnumOptions> = {
   },
 };
 
-function createBaseEnumValueOptions(): EnumValueOptions {
+export function createBaseEnumValueOptions(): EnumValueOptions {
   return { deprecated: false, uninterpretedOption: [] };
 }
 
@@ -2644,7 +2644,7 @@ export const EnumValueOptions: MessageFns<EnumValueOptions> = {
   },
 };
 
-function createBaseServiceOptions(): ServiceOptions {
+export function createBaseServiceOptions(): ServiceOptions {
   return { deprecated: false, uninterpretedOption: [] };
 }
 
@@ -2692,7 +2692,7 @@ export const ServiceOptions: MessageFns<ServiceOptions> = {
   },
 };
 
-function createBaseMethodOptions(): MethodOptions {
+export function createBaseMethodOptions(): MethodOptions {
   return { deprecated: false, idempotencyLevel: 0, uninterpretedOption: [] };
 }
 
@@ -2751,7 +2751,7 @@ export const MethodOptions: MessageFns<MethodOptions> = {
   },
 };
 
-function createBaseUninterpretedOption(): UninterpretedOption {
+export function createBaseUninterpretedOption(): UninterpretedOption {
   return {
     name: [],
     identifierValue: "",
@@ -2862,7 +2862,7 @@ export const UninterpretedOption: MessageFns<UninterpretedOption> = {
   },
 };
 
-function createBaseUninterpretedOption_NamePart(): UninterpretedOption_NamePart {
+export function createBaseUninterpretedOption_NamePart(): UninterpretedOption_NamePart {
   return { namePart: "", isExtension: false };
 }
 
@@ -2910,7 +2910,7 @@ export const UninterpretedOption_NamePart: MessageFns<UninterpretedOption_NamePa
   },
 };
 
-function createBaseSourceCodeInfo(): SourceCodeInfo {
+export function createBaseSourceCodeInfo(): SourceCodeInfo {
   return { location: [] };
 }
 
@@ -2947,7 +2947,7 @@ export const SourceCodeInfo: MessageFns<SourceCodeInfo> = {
   },
 };
 
-function createBaseSourceCodeInfo_Location(): SourceCodeInfo_Location {
+export function createBaseSourceCodeInfo_Location(): SourceCodeInfo_Location {
   return { path: [], span: [], leadingComments: "", trailingComments: "", leadingDetachedComments: [] };
 }
 
@@ -3052,7 +3052,7 @@ export const SourceCodeInfo_Location: MessageFns<SourceCodeInfo_Location> = {
   },
 };
 
-function createBaseGeneratedCodeInfo(): GeneratedCodeInfo {
+export function createBaseGeneratedCodeInfo(): GeneratedCodeInfo {
   return { annotation: [] };
 }
 
@@ -3089,7 +3089,7 @@ export const GeneratedCodeInfo: MessageFns<GeneratedCodeInfo> = {
   },
 };
 
-function createBaseGeneratedCodeInfo_Annotation(): GeneratedCodeInfo_Annotation {
+export function createBaseGeneratedCodeInfo_Annotation(): GeneratedCodeInfo_Annotation {
   return { path: [], sourceFile: "", begin: 0, end: 0 };
 }
 

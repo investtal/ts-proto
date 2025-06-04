@@ -11,7 +11,7 @@ export interface NoUseDatePSuffixTypeNoUseDateS {
   createdAt: NoUseDatePTimestampNoUseDateS | undefined;
 }
 
-function createBaseNoUseDatePSuffixTypeNoUseDateS(): NoUseDatePSuffixTypeNoUseDateS {
+export function createBaseNoUseDatePSuffixTypeNoUseDateS(): NoUseDatePSuffixTypeNoUseDateS {
   return { createdAt: undefined };
 }
 

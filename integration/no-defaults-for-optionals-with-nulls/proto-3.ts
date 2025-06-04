@@ -21,7 +21,7 @@ export interface Proto3TestMessage_MapValueEntry {
   value?: string | null;
 }
 
-function createBaseProto3TestMessage(): Proto3TestMessage {
+export function createBaseProto3TestMessage(): Proto3TestMessage {
   return {
     boolValue: null,
     intValue: null,
@@ -204,7 +204,7 @@ export const Proto3TestMessage: MessageFns<Proto3TestMessage> = {
   },
 };
 
-function createBaseProto3TestMessage_MapValueEntry(): Proto3TestMessage_MapValueEntry {
+export function createBaseProto3TestMessage_MapValueEntry(): Proto3TestMessage_MapValueEntry {
   return { key: null, value: null };
 }
 

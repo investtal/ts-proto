@@ -83,7 +83,7 @@ export interface ListValue {
 
 export const GOOGLE_PROTOBUF_PACKAGE_NAME = "google.protobuf";
 
-function createBaseStruct(): Struct {
+export function createBaseStruct(): Struct {
   return { fields: {} };
 }
 
@@ -110,7 +110,7 @@ export const Struct: MessageFns<Struct> & StructWrapperFns = {
   },
 };
 
-function createBaseValue(): Value {
+export function createBaseValue(): Value {
   return {};
 }
 
@@ -153,7 +153,7 @@ export const Value: MessageFns<Value> & AnyValueWrapperFns = {
   },
 };
 
-function createBaseListValue(): ListValue {
+export function createBaseListValue(): ListValue {
   return { values: [] };
 }
 

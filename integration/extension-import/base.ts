@@ -8,7 +8,7 @@ export interface Extendable {
   field: string;
 }
 
-function createBaseExtendable(): Extendable {
+export function createBaseExtendable(): Extendable {
   return { field: "" };
 }
 

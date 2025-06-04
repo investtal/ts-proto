@@ -160,7 +160,7 @@ export interface CodeGeneratorResponse_File {
   _unknownFields?: { [key: number]: Uint8Array[] } | undefined;
 }
 
-function createBaseVersion(): Version {
+export function createBaseVersion(): Version {
   return { major: 0, minor: 0, patch: 0, suffix: "", _unknownFields: {} };
 }
 
@@ -246,7 +246,7 @@ export const Version: MessageFns<Version> = {
   },
 };
 
-function createBaseCodeGeneratorRequest(): CodeGeneratorRequest {
+export function createBaseCodeGeneratorRequest(): CodeGeneratorRequest {
   return { fileToGenerate: [], parameter: "", protoFile: [], compilerVersion: undefined, _unknownFields: {} };
 }
 
@@ -332,7 +332,7 @@ export const CodeGeneratorRequest: MessageFns<CodeGeneratorRequest> = {
   },
 };
 
-function createBaseCodeGeneratorResponse(): CodeGeneratorResponse {
+export function createBaseCodeGeneratorResponse(): CodeGeneratorResponse {
   return { error: "", supportedFeatures: 0, file: [], _unknownFields: {} };
 }
 
@@ -407,7 +407,7 @@ export const CodeGeneratorResponse: MessageFns<CodeGeneratorResponse> = {
   },
 };
 
-function createBaseCodeGeneratorResponse_File(): CodeGeneratorResponse_File {
+export function createBaseCodeGeneratorResponse_File(): CodeGeneratorResponse_File {
   return { name: "", insertionPoint: "", content: "", generatedCodeInfo: undefined, _unknownFields: {} };
 }
 

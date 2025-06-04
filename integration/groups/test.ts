@@ -54,7 +54,7 @@ export interface GroupsNestedTest_Group_Nested_Nested2 {
   _unknownFields?: { [key: number]: Uint8Array[] } | undefined;
 }
 
-function createBaseGroupsOptionalTest(): GroupsOptionalTest {
+export function createBaseGroupsOptionalTest(): GroupsOptionalTest {
   return {};
 }
 
@@ -168,7 +168,7 @@ export const GroupsOptionalTest: MessageFns<GroupsOptionalTest> = {
   },
 };
 
-function createBaseGroupsOptionalTest_Group(): GroupsOptionalTest_Group {
+export function createBaseGroupsOptionalTest_Group(): GroupsOptionalTest_Group {
   return {};
 }
 
@@ -264,7 +264,7 @@ export const GroupsOptionalTest_Group: MessageFns<GroupsOptionalTest_Group> = {
   },
 };
 
-function createBaseGroupsRepeatedTest(): GroupsRepeatedTest {
+export function createBaseGroupsRepeatedTest(): GroupsRepeatedTest {
   return {};
 }
 
@@ -426,7 +426,7 @@ export const GroupsRepeatedTest: MessageFns<GroupsRepeatedTest> = {
   },
 };
 
-function createBaseGroupsRepeatedTest_Group(): GroupsRepeatedTest_Group {
+export function createBaseGroupsRepeatedTest_Group(): GroupsRepeatedTest_Group {
   return {};
 }
 
@@ -538,7 +538,7 @@ export const GroupsRepeatedTest_Group: MessageFns<GroupsRepeatedTest_Group> = {
   },
 };
 
-function createBaseGroupsNestedTest(): GroupsNestedTest {
+export function createBaseGroupsNestedTest(): GroupsNestedTest {
   return {};
 }
 
@@ -700,7 +700,7 @@ export const GroupsNestedTest: MessageFns<GroupsNestedTest> = {
   },
 };
 
-function createBaseGroupsNestedTest_Group(): GroupsNestedTest_Group {
+export function createBaseGroupsNestedTest_Group(): GroupsNestedTest_Group {
   return {};
 }
 
@@ -790,7 +790,7 @@ export const GroupsNestedTest_Group: MessageFns<GroupsNestedTest_Group> = {
   },
 };
 
-function createBaseGroupsNestedTest_Group_Nested(): GroupsNestedTest_Group_Nested {
+export function createBaseGroupsNestedTest_Group_Nested(): GroupsNestedTest_Group_Nested {
   return {};
 }
 
@@ -882,7 +882,7 @@ export const GroupsNestedTest_Group_Nested: MessageFns<GroupsNestedTest_Group_Ne
   },
 };
 
-function createBaseGroupsNestedTest_Group_Nested_Nested2(): GroupsNestedTest_Group_Nested_Nested2 {
+export function createBaseGroupsNestedTest_Group_Nested_Nested2(): GroupsNestedTest_Group_Nested_Nested2 {
   return {};
 }
 

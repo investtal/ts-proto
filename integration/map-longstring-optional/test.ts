@@ -17,7 +17,7 @@ export interface MapBigInt_MapEntry {
   _unknownFields?: { [key: number]: Uint8Array[] } | undefined;
 }
 
-function createBaseMapBigInt(): MapBigInt {
+export function createBaseMapBigInt(): MapBigInt {
   return {};
 }
 
@@ -119,7 +119,7 @@ export const MapBigInt: MessageFns<MapBigInt> = {
   },
 };
 
-function createBaseMapBigInt_MapEntry(): MapBigInt_MapEntry {
+export function createBaseMapBigInt_MapEntry(): MapBigInt_MapEntry {
   return { key: "0", value: "0" };
 }
 

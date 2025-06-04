@@ -10,7 +10,7 @@ export interface ObjectId {
   value: string;
 }
 
-function createBaseObjectId(): ObjectId {
+export function createBaseObjectId(): ObjectId {
   return { value: "" };
 }
 

@@ -30,7 +30,7 @@ export interface Array {
   values: String[];
 }
 
-function createBaseObject(): Object {
+export function createBaseObject(): Object {
   return { name: "" };
 }
 
@@ -88,7 +88,7 @@ export const Object: MessageFns<Object> = {
   },
 };
 
-function createBaseError(): Error {
+export function createBaseError(): Error {
   return { name: "" };
 }
 
@@ -146,7 +146,7 @@ export const Error: MessageFns<Error> = {
   },
 };
 
-function createBaseString(): String {
+export function createBaseString(): String {
   return { value: "" };
 }
 
@@ -204,7 +204,7 @@ export const String: MessageFns<String> = {
   },
 };
 
-function createBaseBoolean(): Boolean {
+export function createBaseBoolean(): Boolean {
   return { value: false };
 }
 
@@ -262,7 +262,7 @@ export const Boolean: MessageFns<Boolean> = {
   },
 };
 
-function createBaseNumber(): Number {
+export function createBaseNumber(): Number {
   return { value: 0 };
 }
 
@@ -320,7 +320,7 @@ export const Number: MessageFns<Number> = {
   },
 };
 
-function createBaseArray(): Array {
+export function createBaseArray(): Array {
   return { values: [] };
 }
 

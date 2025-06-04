@@ -48,7 +48,7 @@ export const Request_Nested: MessageFns<Request_Nested> = {
   },
 };
 
-function createBaseResponse(): Response {
+export function createBaseResponse(): Response {
   return { responseId: "" };
 }
 
