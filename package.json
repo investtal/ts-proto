@@ -1,9 +1,9 @@
 {
-  "name": "ts-proto",
-  "version": "2.7.2",
+  "name": "@investtal/ts-proto",
+  "version": "3.0.0",
   "description": "",
   "main": "build/src/plugin.js",
-  "repository": "github:stephenh/ts-proto",
+  "repository": "github:investtal/ts-proto",
   "bin": {
     "protoc-gen-ts_proto": "./protoc-gen-ts_proto"
   },
