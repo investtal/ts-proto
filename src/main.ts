@@ -113,6 +113,7 @@ import {
   wrapTypeName,
 } from "./utils";
 import { visit, visitServices } from "./visit";
+import sourceInfo from "./sourceInfo";
 
 export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [string, Code] {
   const { options, utils } = ctx;
@@ -278,33 +279,33 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
           staticMembers.push(generateEncodeTransform(ctx.utils, fullName));
           staticMembers.push(generateDecodeTransform(ctx.utils, fullName));
         }
-        if (options.outputJsonMethods) {
-          if (options.outputJsonMethods === true || options.outputJsonMethods === "from-only") {
-            staticMembers.push(generateFromJson(ctx, fullName, fullTypeName, message));
-          }
-          if (options.outputJsonMethods === true || options.outputJsonMethods === "to-only") {
-            staticMembers.push(generateToJson(ctx, fullName, fullTypeName, message));
-          }
-        }
-        if (options.outputPartialMethods) {
-          staticMembers.push(generateFromPartial(ctx, fullName, message));
-        }
+        // if (options.outputJsonMethods) {
+        //   if (options.outputJsonMethods === true || options.outputJsonMethods === "from-only") {
+        //     staticMembers.push(generateFromJson(ctx, fullName, fullTypeName, message));
+        //   }
+        //   if (options.outputJsonMethods === true || options.outputJsonMethods === "to-only") {
+        //     staticMembers.push(generateToJson(ctx, fullName, fullTypeName, message));
+        //   }
+        // }
+        // if (options.outputPartialMethods) {
+        //   staticMembers.push(generateFromPartial(ctx, fullName, message));
+        // }
 
         const structFieldNames = {
           nullValue: maybeSnakeToCamel("null_value", ctx.options),
           numberValue: maybeSnakeToCamel("number_value", ctx.options),
           stringValue: maybeSnakeToCamel("string_value", ctx.options),
           boolValue: maybeSnakeToCamel("bool_value", ctx.options),
-          structValue: maybeSnakeToCamel("struct_value", ctx.options),
-          listValue: maybeSnakeToCamel("list_value", ctx.options),
+          // structValue: maybeSnakeToCamel("struct_value", ctx.options),
+          // listValue: maybeSnakeToCamel("list_value", ctx.options),
         };
-        if (options.nestJs) {
-          staticMembers.push(...generateWrapDeep(ctx, fullTypeName, structFieldNames));
-          staticMembers.push(...generateUnwrapDeep(ctx, fullTypeName, structFieldNames));
-        } else {
-          staticMembers.push(...generateWrapShallow(ctx, fullTypeName, structFieldNames));
-          staticMembers.push(...generateUnwrapShallow(ctx, fullTypeName, structFieldNames));
-        }
+        // if (options.nestJs) {
+        //   staticMembers.push(...generateWrapDeep(ctx, fullTypeName, structFieldNames));
+        //   staticMembers.push(...generateUnwrapDeep(ctx, fullTypeName, structFieldNames));
+        // } else {
+        //   // staticMembers.push(...generateWrapShallow(ctx, fullTypeName, structFieldNames));
+        //   staticMembers.push(...generateUnwrapShallow(ctx, fullTypeName, structFieldNames));
+        // }
 
         if (staticMembers.length > 0) {
           const messageFnsTypeParameters = [fullName, hasTypeMember && `'${fullTypeName}'`]
@@ -320,13 +321,14 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
           ) {
             interfaces.push(code`${utils.ExtensionFns}<${fullName}>`);
           }
-          if (isStructTypeName(fullTypeName)) {
-            interfaces.push(code`${utils.StructWrapperFns}`);
-          } else if (isAnyValueTypeName(fullTypeName)) {
-            interfaces.push(code`${utils.AnyValueWrapperFns}`);
-          } else if (isListValueTypeName(fullTypeName)) {
-            interfaces.push(code`${utils.ListValueWrapperFns}`);
-          } else if (isFieldMaskTypeName(fullTypeName)) {
+          // if (isStructTypeName(fullTypeName)) {
+          //   // interfaces.push(code`${utils.StructWrapperFns}`);
+          // }
+          //  else if (isAnyValueTypeName(fullTypeName)) {
+          //   interfaces.push(code`${utils.AnyValueWrapperFns}`);
+          // } else if (isListValueTypeName(fullTypeName)) {
+          //   interfaces.push(code`${utils.ListValueWrapperFns}`);
+          if (isFieldMaskTypeName(fullTypeName)) {
             interfaces.push(code`${utils.FieldMaskWrapperFns}`);
           }
           if (options.outputExtensions) {
@@ -830,38 +832,38 @@ function makeMessageFns(
     `,
   );
 
-  const StructWrapperFns = conditionalOutput(
-    "StructWrapperFns",
-    code`
-      ${maybeExport} interface StructWrapperFns {
-        wrap(object: {[key: string]: any} | undefined): ${wrapTypeName(options, "Struct")};
-        unwrap(message: ${wrapTypeName(options, "Struct")}): {[key: string]: any};
-      }
-    `,
-  );
+  // const StructWrapperFns = conditionalOutput(
+  //   "StructWrapperFns",
+  //   code`
+  //     ${maybeExport} interface StructWrapperFns {
+  //       wrap(object: {[key: string]: any} | undefined): ${wrapTypeName(options, "Struct")};
+  //       unwrap(message: ${wrapTypeName(options, "Struct")}): {[key: string]: any};
+  //     }
+  //   `,
+  // );
 
-  const AnyValueWrapperFns = conditionalOutput(
-    "AnyValueWrapperFns",
-    code`
-      ${maybeExport} interface AnyValueWrapperFns {
-        wrap(value: any): ${wrapTypeName(options, "Value")};
-        unwrap(message: any): string | number | boolean | Object | null | Array<any> | undefined;
-      }
-    `,
-  );
+  // const AnyValueWrapperFns = conditionalOutput(
+  //   "AnyValueWrapperFns",
+  //   code`
+  //     ${maybeExport} interface AnyValueWrapperFns {
+  //       wrap(value: any): ${wrapTypeName(options, "Value")};
+  //       unwrap(message: any): string | number | boolean | Object | null | Array<any> | undefined;
+  //     }
+  //   `,
+  // );
 
-  const ListValueWrapperFns = conditionalOutput(
-    "ListValueWrapperFns",
-    code`
-      ${maybeExport} interface ListValueWrapperFns {
-        wrap(array: ${options.useReadonlyTypes ? "Readonly" : ""}Array<any> | undefined): ${wrapTypeName(
-      options,
-      "ListValue",
-    )};
-        unwrap(message: ${options.useReadonlyTypes ? "any" : wrapTypeName(options, "ListValue")}): Array<any>;
-      }
-    `,
-  );
+  // const ListValueWrapperFns = conditionalOutput(
+  //   "ListValueWrapperFns",
+  //   code`
+  //     ${maybeExport} interface ListValueWrapperFns {
+  //       wrap(array: ${options.useReadonlyTypes ? "Readonly" : ""}Array<any> | undefined): ${wrapTypeName(
+  //     options,
+  //     "ListValue",
+  //   )};
+  //       unwrap(message: ${options.useReadonlyTypes ? "any" : wrapTypeName(options, "ListValue")}): Array<any>;
+  //     }
+  //   `,
+  // );
 
   const FieldMaskWrapperFns = conditionalOutput(
     "FieldMaskWrapperFns",
@@ -879,9 +881,9 @@ function makeMessageFns(
     MessageFns,
     ExtensionFns,
     ExtensionHolder,
-    StructWrapperFns,
-    AnyValueWrapperFns,
-    ListValueWrapperFns,
+    // StructWrapperFns,
+    // AnyValueWrapperFns,
+    // ListValueWrapperFns,
     FieldMaskWrapperFns,
   };
 }
