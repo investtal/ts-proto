@@ -1,7 +1,7 @@
 {
   "name": "@investtal/ts-proto",
   "version": "3.0.0",
-  "description": "",
+  "description": "ts-proto fork for Investtal",
   "main": "build/src/plugin.js",
   "repository": "github:investtal/ts-proto",
   "bin": {
@@ -72,5 +72,10 @@
     "ts-poet": "^6.12.0",
     "ts-proto-descriptors": "2.0.0"
   },
-  "packageManager": "yarn@4.4.0"
+  "packageManager": "yarn@4.4.0",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest",
+    "registry": "https://registry.npmjs.org"
+  }
 }
