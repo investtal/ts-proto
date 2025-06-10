@@ -261,7 +261,7 @@ export function generateServiceClientImpl(
 
   // Define the service name constant.
   const serviceNameConst = `${name}ServiceName`;
-  chunks.push(code`export const ${serviceNameConst} = "${serviceName}";`);
+  // chunks.push(code`export const ${serviceNameConst} = "${serviceName}";`);
 
   // Define the FooServiceImpl class
   const i = options.context ? `${name}<Context>` : name;

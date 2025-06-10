@@ -113,7 +113,6 @@ import {
   wrapTypeName,
 } from "./utils";
 import { visit, visitServices } from "./visit";
-import sourceInfo from "./sourceInfo";
 
 export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [string, Code] {
   const { options, utils } = ctx;
@@ -275,16 +274,13 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
           }
         }
 
-        if (options.useAsyncIterable) {
-          staticMembers.push(generateEncodeTransform(ctx.utils, fullName));
-          staticMembers.push(generateDecodeTransform(ctx.utils, fullName));
-        }
+        // if (options.useAsyncIterable) {
+        //   staticMembers.push(generateEncodeTransform(ctx.utils, fullName));
+        //   staticMembers.push(generateDecodeTransform(ctx.utils, fullName));
+        // }
         // if (options.outputJsonMethods) {
         //   if (options.outputJsonMethods === true || options.outputJsonMethods === "from-only") {
         //     staticMembers.push(generateFromJson(ctx, fullName, fullTypeName, message));
-        //   }
-        //   if (options.outputJsonMethods === true || options.outputJsonMethods === "to-only") {
-        //     staticMembers.push(generateToJson(ctx, fullName, fullTypeName, message));
         //   }
         // }
         // if (options.outputPartialMethods) {
@@ -296,16 +292,16 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
           numberValue: maybeSnakeToCamel("number_value", ctx.options),
           stringValue: maybeSnakeToCamel("string_value", ctx.options),
           boolValue: maybeSnakeToCamel("bool_value", ctx.options),
-          // structValue: maybeSnakeToCamel("struct_value", ctx.options),
-          // listValue: maybeSnakeToCamel("list_value", ctx.options),
+          structValue: maybeSnakeToCamel("struct_value", ctx.options),
+          listValue: maybeSnakeToCamel("list_value", ctx.options),
         };
-        // if (options.nestJs) {
-        //   staticMembers.push(...generateWrapDeep(ctx, fullTypeName, structFieldNames));
-        //   staticMembers.push(...generateUnwrapDeep(ctx, fullTypeName, structFieldNames));
-        // } else {
-        //   // staticMembers.push(...generateWrapShallow(ctx, fullTypeName, structFieldNames));
-        //   staticMembers.push(...generateUnwrapShallow(ctx, fullTypeName, structFieldNames));
-        // }
+        if (options.nestJs) {
+          staticMembers.push(...generateWrapDeep(ctx, fullTypeName, structFieldNames));
+          staticMembers.push(...generateUnwrapDeep(ctx, fullTypeName, structFieldNames));
+        } else {
+          staticMembers.push(...generateWrapShallow(ctx, fullTypeName, structFieldNames));
+          staticMembers.push(...generateUnwrapShallow(ctx, fullTypeName, structFieldNames));
+        }
 
         if (staticMembers.length > 0) {
           const messageFnsTypeParameters = [fullName, hasTypeMember && `'${fullTypeName}'`]
@@ -321,14 +317,13 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
           ) {
             interfaces.push(code`${utils.ExtensionFns}<${fullName}>`);
           }
-          // if (isStructTypeName(fullTypeName)) {
-          //   // interfaces.push(code`${utils.StructWrapperFns}`);
-          // }
-          //  else if (isAnyValueTypeName(fullTypeName)) {
-          //   interfaces.push(code`${utils.AnyValueWrapperFns}`);
-          // } else if (isListValueTypeName(fullTypeName)) {
-          //   interfaces.push(code`${utils.ListValueWrapperFns}`);
-          if (isFieldMaskTypeName(fullTypeName)) {
+          if (isStructTypeName(fullTypeName)) {
+            interfaces.push(code`${utils.StructWrapperFns}`);
+          } else if (isAnyValueTypeName(fullTypeName)) {
+            interfaces.push(code`${utils.AnyValueWrapperFns}`);
+          } else if (isListValueTypeName(fullTypeName)) {
+            interfaces.push(code`${utils.ListValueWrapperFns}`);
+          } else if (isFieldMaskTypeName(fullTypeName)) {
             interfaces.push(code`${utils.FieldMaskWrapperFns}`);
           }
           if (options.outputExtensions) {
@@ -357,13 +352,13 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
     );
   }
 
-  if (options.outputExtensions) {
-    for (const extension of fileDesc.extension) {
-      const { name, type, extensionInfo } = generateExtension(ctx, undefined, extension);
+  // if (options.outputExtensions) {
+  //   for (const extension of fileDesc.extension) {
+  //     const { name, type, extensionInfo } = generateExtension(ctx, undefined, extension);
 
-      chunks.push(code`export const ${name}: ${ctx.utils.Extension}<${type}> = ${extensionInfo};`);
-    }
-  }
+  //     chunks.push(code`export const ${name}: ${ctx.utils.Extension}<${type}> = ${extensionInfo};`);
+  //   }
+  // }
 
   if (options.nestJs) {
     if (fileDesc.messageType.find((message) => message.field.find(isStructType))) {
@@ -375,20 +370,20 @@ export function generateFile(ctx: Context, fileDesc: FileDescriptorProto): [stri
   let hasStreamingMethods = false;
 
   visitServices(fileDesc, sourceInfo, (serviceDesc, sInfo) => {
-    if (options.nestJs) {
-      // NestJS is sufficiently different that we special case the client/server interfaces
-      // generate nestjs grpc client interface
-      chunks.push(generateNestjsServiceClient(ctx, fileDesc, sInfo, serviceDesc));
-      // and the service controller interface
-      chunks.push(generateNestjsServiceController(ctx, fileDesc, sInfo, serviceDesc));
-      // generate nestjs grpc service controller decorator
-      chunks.push(generateNestjsGrpcServiceMethodsDecorator(ctx, serviceDesc));
-      let serviceConstName = `${camelToSnake(serviceDesc.name)}_NAME`;
-      if (!serviceDesc.name.toLowerCase().endsWith("service")) {
-        serviceConstName = `${camelToSnake(serviceDesc.name)}_SERVICE_NAME`;
-      }
-      chunks.push(code`export const ${serviceConstName} = "${serviceDesc.name}";`);
-    }
+    // if (options.nestJs) {
+    //   // NestJS is sufficiently different that we special case the client/server interfaces
+    //   // generate nestjs grpc client interface
+    //   chunks.push(generateNestjsServiceClient(ctx, fileDesc, sInfo, serviceDesc));
+    //   // and the service controller interface
+    //   chunks.push(generateNestjsServiceController(ctx, fileDesc, sInfo, serviceDesc));
+    //   // generate nestjs grpc service controller decorator
+    //   chunks.push(generateNestjsGrpcServiceMethodsDecorator(ctx, serviceDesc));
+    //   let serviceConstName = `${camelToSnake(serviceDesc.name)}_NAME`;
+    //   if (!serviceDesc.name.toLowerCase().endsWith("service")) {
+    //     serviceConstName = `${camelToSnake(serviceDesc.name)}_SERVICE_NAME`;
+    //   }
+    //   chunks.push(code`export const ${serviceConstName} = "${serviceDesc.name}";`);
+    // }
 
     const uniqueServices = [...new Set(options.outputServices)].sort();
     uniqueServices.forEach((outputService) => {
@@ -498,6 +493,7 @@ export function makeUtils(options: Options): Utils {
   const longs = makeLongUtils(options, bytes);
   const deepPartial = makeDeepPartial(options, longs);
   const extension = makeExtensionClass(options);
+  
   return {
     ...bytes,
     ...deepPartial,
@@ -785,24 +781,24 @@ function makeMessageFns(
     `);
   }
 
-  if (options.outputJsonMethods) {
-    if (options.outputJsonMethods === true || options.outputJsonMethods === "from-only") {
-      commonStaticMembers.push(code`fromJSON(object: any): T;`);
-    }
-    if (options.outputJsonMethods === true || options.outputJsonMethods === "to-only") {
-      commonStaticMembers.push(code`toJSON(message: T): unknown;`);
-    }
-  }
+  // if (options.outputJsonMethods) {
+  //   if (options.outputJsonMethods === true || options.outputJsonMethods === "from-only") {
+  //     commonStaticMembers.push(code`fromJSON(object: any): T;`);
+  //   }
+  //   if (options.outputJsonMethods === true || options.outputJsonMethods === "to-only") {
+  //     commonStaticMembers.push(code`toJSON(message: T): unknown;`);
+  //   }
+  // }
 
-  if (options.outputPartialMethods) {
-    if (options.useExactTypes) {
-      commonStaticMembers.push(code`create<I extends ${Exact}<${DeepPartial}<T>, I>>(base?: I): T;`);
-      commonStaticMembers.push(code`fromPartial<I extends ${Exact}<${DeepPartial}<T>, I>>(object: I): T;`);
-    } else {
-      commonStaticMembers.push(code`create(base?: DeepPartial<T>): T;`);
-      commonStaticMembers.push(code`fromPartial(object: DeepPartial<T>): T;`);
-    }
-  }
+  // if (options.outputPartialMethods) {
+  //   if (options.useExactTypes) {
+  //     commonStaticMembers.push(code`create<I extends ${Exact}<${DeepPartial}<T>, I>>(base?: I): T;`);
+  //     commonStaticMembers.push(code`fromPartial<I extends ${Exact}<${DeepPartial}<T>, I>>(object: I): T;`);
+  //   } else {
+  //     commonStaticMembers.push(code`create(base?: DeepPartial<T>): T;`);
+  //     commonStaticMembers.push(code`fromPartial(object: DeepPartial<T>): T;`);
+  //   }
+  // }
 
   const maybeExport = options.exportCommonSymbols ? "export" : "";
   const MessageFns = conditionalOutput(
@@ -832,38 +828,38 @@ function makeMessageFns(
     `,
   );
 
-  // const StructWrapperFns = conditionalOutput(
-  //   "StructWrapperFns",
-  //   code`
-  //     ${maybeExport} interface StructWrapperFns {
-  //       wrap(object: {[key: string]: any} | undefined): ${wrapTypeName(options, "Struct")};
-  //       unwrap(message: ${wrapTypeName(options, "Struct")}): {[key: string]: any};
-  //     }
-  //   `,
-  // );
+  const StructWrapperFns = conditionalOutput(
+    "StructWrapperFns",
+    code`
+      ${maybeExport} interface StructWrapperFns {
+        wrap(object: {[key: string]: any} | undefined): ${wrapTypeName(options, "Struct")};
+        unwrap(message: ${wrapTypeName(options, "Struct")}): {[key: string]: any};
+      }
+    `,
+  );
 
-  // const AnyValueWrapperFns = conditionalOutput(
-  //   "AnyValueWrapperFns",
-  //   code`
-  //     ${maybeExport} interface AnyValueWrapperFns {
-  //       wrap(value: any): ${wrapTypeName(options, "Value")};
-  //       unwrap(message: any): string | number | boolean | Object | null | Array<any> | undefined;
-  //     }
-  //   `,
-  // );
+  const AnyValueWrapperFns = conditionalOutput(
+    "AnyValueWrapperFns",
+    code`
+      ${maybeExport} interface AnyValueWrapperFns {
+        wrap(value: any): ${wrapTypeName(options, "Value")};
+        unwrap(message: any): string | number | boolean | Object | null | Array<any> | undefined;
+      }
+    `,
+  );
 
-  // const ListValueWrapperFns = conditionalOutput(
-  //   "ListValueWrapperFns",
-  //   code`
-  //     ${maybeExport} interface ListValueWrapperFns {
-  //       wrap(array: ${options.useReadonlyTypes ? "Readonly" : ""}Array<any> | undefined): ${wrapTypeName(
-  //     options,
-  //     "ListValue",
-  //   )};
-  //       unwrap(message: ${options.useReadonlyTypes ? "any" : wrapTypeName(options, "ListValue")}): Array<any>;
-  //     }
-  //   `,
-  // );
+  const ListValueWrapperFns = conditionalOutput(
+    "ListValueWrapperFns",
+    code`
+      ${maybeExport} interface ListValueWrapperFns {
+        wrap(array: ${options.useReadonlyTypes ? "Readonly" : ""}Array<any> | undefined): ${wrapTypeName(
+      options,
+      "ListValue",
+    )};
+        unwrap(message: ${options.useReadonlyTypes ? "any" : wrapTypeName(options, "ListValue")}): Array<any>;
+      }
+    `,
+  );
 
   const FieldMaskWrapperFns = conditionalOutput(
     "FieldMaskWrapperFns",
@@ -881,9 +877,9 @@ function makeMessageFns(
     MessageFns,
     ExtensionFns,
     ExtensionHolder,
-    // StructWrapperFns,
-    // AnyValueWrapperFns,
-    // ListValueWrapperFns,
+    StructWrapperFns,
+    AnyValueWrapperFns,
+    ListValueWrapperFns,
     FieldMaskWrapperFns,
   };
 }
@@ -2454,11 +2450,11 @@ function generateToJson(
   const { options, utils, typeMap } = ctx;
   const chunks: Code[] = [];
 
-  const canonicalToJson = generateCanonicalToJson(fullName, fullProtobufTypeName, options);
-  if (canonicalToJson) {
-    chunks.push(canonicalToJson);
-    return joinCode(chunks, { on: "\n" });
-  }
+  // const canonicalToJson = generateCanonicalToJson(fullName, fullProtobufTypeName, options);
+  // if (canonicalToJson) {
+  //   chunks.push(canonicalToJson);
+  //   return joinCode(chunks, { on: "\n" });
+  // }
 
   // create the basic function declaration
   chunks.push(code`

@@ -38,22 +38,22 @@ function generateMessageType(ctx: BaseContext): Code {
     chunks.push(code`$type: string;`);
   }
 
-  if (ctx.options.outputEncodeMethods) {
-    const BinaryReader = imp("BinaryReader@@bufbuild/protobuf/wire");
-    const BinaryWriter = imp("BinaryWriter@@bufbuild/protobuf/wire");
+  // if (ctx.options.outputEncodeMethods) {
+  //   const BinaryReader = imp("BinaryReader@@bufbuild/protobuf/wire");
+  //   const BinaryWriter = imp("BinaryWriter@@bufbuild/protobuf/wire");
 
-    chunks.push(code`encode(message: Message, writer?: ${BinaryWriter}): ${BinaryWriter};`);
-    chunks.push(code`decode(input: ${BinaryReader} | Uint8Array, length?: number): Message;`);
-  }
+  //   chunks.push(code`encode(message: Message, writer?: ${BinaryWriter}): ${BinaryWriter};`);
+  //   chunks.push(code`decode(input: ${BinaryReader} | Uint8Array, length?: number): Message;`);
+  // }
 
-  if (ctx.options.outputJsonMethods) {
-    chunks.push(code`fromJSON(object: any): Message;`);
-    chunks.push(code`toJSON(message: Message): unknown;`);
-  }
+  // if (ctx.options.outputJsonMethods) {
+  //   chunks.push(code`fromJSON(object: any): Message;`);
+  //   chunks.push(code`toJSON(message: Message): unknown;`);
+  // }
 
-  if (ctx.options.outputPartialMethods) {
-    chunks.push(code`fromPartial(object: ${ctx.utils.DeepPartial}<Message>): Message;`);
-  }
+  // if (ctx.options.outputPartialMethods) {
+  //   chunks.push(code`fromPartial(object: ${ctx.utils.DeepPartial}<Message>): Message;`);
+  // }
 
   chunks.push(code`}`);
 
