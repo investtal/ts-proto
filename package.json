@@ -1,11 +1,11 @@
 {
   "name": "@investtal/ts-proto",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "ts-proto fork for Investtal",
   "main": "build/src/plugin.js",
   "repository": "github:investtal/ts-proto",
   "bin": {
-    "protoc-gen-ts_proto": "./protoc-gen-ts_proto"
+    "protoc-gen-ts-proto": "./ivt-protoc-gen-ts-proto"
   },
   "types": "build/src/index.d.ts",
   "scripts": {
